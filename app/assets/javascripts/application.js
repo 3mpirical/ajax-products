@@ -72,6 +72,7 @@ elements.courseForm.addEventListener("submit", (event) => {
     })
     .then((res) => {
         console.log(res)
+        elements.courseInput.value = "";
         if(res.status === 200) {
             return axios.get(`/users/${userId}/courses`);
         }
