@@ -258,3 +258,23 @@ body {
         color: white;
     }
 }
+
+.new_user {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    height: 100rem;
+    width: 150rem;
+}
+
+.text-center {
+    text-align: center;
+}
+label {
+    display: none;
+}

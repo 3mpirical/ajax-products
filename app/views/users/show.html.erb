@@ -35,7 +35,7 @@
     <%= form_tag("users/#{current_user.id}/courses", local: true, data: {remote: "true"}, class: "create-course") do %>
 
     <%= label_tag :course,  "" %>
-    <%= text_field_tag :course, nil,  placeholder: "Course Name", class: "form-input" %> 
+    <%= text_field_tag :course, nil,  placeholder: "Course Name (Products)", class: "form-input" %> 
 
     <%= submit_tag "Submit", class: "form-submit" %>
 
