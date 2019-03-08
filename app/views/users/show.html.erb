@@ -1,2 +1,73 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div class="navbar">
+
+    <div class="navbar__left">
+        <%= link_to "Signout", destroy_user_session_path, class: "sign-out",method: :delete %>
+
+        <p class="user-heading" data-id=" <%= current_user.id %> ">
+            Welcome <%= current_user.first_name %> 
+        </p>
+    </div>
+
+    <img class="menu-icon" src="/assets/angle-circle-left.svg" alt="">
+</div>
+<div class="clearfix"></div>
+
+<div class="page-container">
+    <div class="wallpaper"></div>
+    <h2 class="university-name" >ShysteR UniVersitY</h2>
+
+    <div class="user-card">
+        <img class="user-avatar" src=" <%= current_user.avatar %> " alt="menu icon">
+        <p class="user-degree"> <%= current_user.degree %> </p>
+        <p class="user-email"> <%= current_user.email %> </p>
+    </div>
+
+    <div class="bar"></div>
+
+    <div class="all-courses">All Courses</div>
+
+    <div class="courses-container">
+        <div class="course">
+            <div class="course__name">Example</div>
+        </div>
+        <div class="course">
+            <div class="course__name">Example</div>
+        </div>
+        <div class="course">
+            <div class="course__name">Example</div>
+        </div>
+        <div class="course">
+            <div class="course__name">Example</div>
+        </div>
+        <div class="course">
+            <div class="course__name">Example</div>
+        </div>
+        <div class="course">
+            <div class="course__name">Example</div>
+        </div>
+        <div class="course">
+            <div class="course__name">Example</div>
+        </div>
+        <div class="course">
+            <div class="course__name">Example</div>
+        </div>
+        <div class="course">
+            <div class="course__name">Example</div>
+        </div>
+    </div>
+
+    <div class="new-course-label">New Course</div>
+
+    <%= form_tag("users/#{current_user.id}/courses", local: true, class: "create-course") do %>
+
+    <%= label_tag :course,  "" %>
+    <%= text_field_tag :course, nil,  placeholder: "Course Name", class: "form-input" %> 
+
+    <%= submit_tag "Submit", class: "form-submit" %>
+
+    <% end  %>
+
+
+</div>
+

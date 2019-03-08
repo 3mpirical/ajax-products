@@ -6,6 +6,7 @@ User.destroy_all();
 User.create(
     first_name: "Betty",
     last_name: "White",
+    avatar: "https://robohash.org/#{rand(100)}?set=set2",
     degree: "Econophysionomy",
     email: "fake@mail.com",
     password: "password",
@@ -15,6 +16,7 @@ for i in (1..3)
     User.create(
         first_name: Faker::Name.first_name(),
         last_name: Faker::Name.last_name(),
+        avatar: "https://robohash.org/#{rand(100)}?set=set2",
         degree: Faker::Educator.degree(),
         email: Faker::Internet.email(),
         password: "password",

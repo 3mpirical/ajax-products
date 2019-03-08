@@ -1,0 +1,262 @@
+
+
+$color-white: white;
+$color-blue: #283593;
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 50%;
+}
+
+body {
+    box-sizing: border-box;
+    font-family: "Lato", serif;
+    font-size: 1.7rem;
+    letter-spacing: 1.25px;
+    background-color: #212121;
+    color: $color-white;    
+}
+
+
+.navbar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 2.25rem;
+    height: 4rem;
+    width: 100vw;
+    background-color: $color-blue;
+
+    &__left {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 25rem;
+    }
+
+    .sign-out {
+        text-decoration: none;
+        color: $color-white;
+        font-size: 2rem;
+        border: 1px solid $color-white;
+        border-radius: 3px;
+        padding: 0.15rem 1rem;
+
+        &:hover {
+            background-color: rgba($color-white, 0.1);
+        }
+    }
+
+    .user-heading {
+        font-size: 2rem;
+    }
+
+    .menu-icon {
+        height: 3rem;
+        border-radius: 100px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(255,255,255, 0.1);
+
+        }
+    }
+}
+
+.clearfix {
+    height: 4rem;
+    width: 100vw;
+}
+
+
+.page-container {
+    position: relative;
+    width: 100vw;
+    height: calc(100vh - 4rem);
+    padding: 2rem;
+
+    .wallpaper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-position: 50% 42%;
+        background-repeat: none;
+        background-size: cover;
+        background-image: url(campus.jpeg);
+        height: 30rem;
+        width: 100vw;
+        z-index: -1000;
+    }
+
+    .university-name {
+        position: absolute;
+        // top: 4rem;
+        // right: 4rem;
+        top: 0rem;
+        right: 8rem;
+        // background-color: rgba(0,0,0,0.6);
+        background-color: $color-blue;
+        // border-radius: 3px;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+        padding: 0.5rem 2.5rem;
+        font-family: "Cinzel Decorative";
+        font-size: 5rem;
+        letter-spacing: 4px;
+    }
+
+    .user-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        width: 30rem;
+        height: 26rem;
+        margin-left: 1rem;
+
+        .user-avatar {
+            height: 20rem;
+            border-radius: 1000px;
+            background-color: #424242;
+        }
+
+        .user-email,
+        .user-degree {
+            padding: 0.2rem 2rem;
+            background-color: rgba(0,0,0,0.4);
+            border-radius: 3px;
+        }
+    }
+
+}
+
+.bar {
+    position: absolute;
+    top: 30rem;
+    left: 0;
+    width: 100vw;
+    height: 2rem;
+    background-color: $color-blue;
+}
+
+.all-courses {
+    position: absolute;
+    top: 32rem;
+    left: 3rem;
+    font-family: "Cinzel Decorative";
+    font-size: 2rem;
+    padding: 0.5rem 2rem;
+    background-color: $color-blue;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    z-index: 10;
+}
+
+.courses-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 45vw;
+    height: calc(100% - 32rem);
+    overflow: scroll;
+    padding-top: 4rem;
+}
+
+.course {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    height: 7rem;
+    width: 90%;
+    background-color: rgba(white, 0.4);
+    border-radius: 3px;
+    padding-left: 2rem;
+    margin: 1.5rem 0;
+    box-shadow: 2px 3px 3px black;
+    cursor: pointer;
+    transition-duration: 0.15s;
+
+    &__name {
+        font-size: 3.5rem;
+        letter-spacing: 3px;
+    }
+
+    &:hover {
+        transform: translateY(2px);
+        background-color: rgba(white, 0.5);
+        box-shadow: 1px 1px 1px black;
+    }
+}
+
+
+.new-course-label {
+    position: absolute;
+    top: 32rem;
+    right: 3rem;
+    font-family: "Cinzel Decorative";
+    font-size: 2rem;
+    padding: 0.5rem 2rem;
+    background-color: $color-blue;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    z-index: 10;
+}
+
+
+.create-course {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 55vw;
+    height: calc(100% - 32rem);
+
+}
+
+.form-input {
+    width: 50%;
+    height: 5rem;
+    background-color: rgba(0,0,0,0.6);
+    border: none;
+    border-bottom: 3px solid $color-blue;
+    border-radius: 3px;
+    color: $color-blue;
+    font-family: "Lato";
+    letter-spacing: 2px;
+    font-size: 3rem;
+    padding-left: 2rem;
+}
+
+.form-submit {
+    width: 25%;
+    height: 5rem;
+    background-color: rgba(0,0,0,0.6);
+    border: none;
+    border: 1px solid $color-blue;
+    border-radius: 3px;
+    color: $color-blue;
+    font-family: "Lato";
+    letter-spacing: 2px;
+    font-size: 3rem;
+    padding: 0.5rem 2rem;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $color-blue;
+        color: white;
+    }
+}

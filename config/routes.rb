@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:show] do
-    resources :courses, only: [:create, :update, :destroy]
-    resources :books, only: [:create, :update, :destroy]
+    resources :courses, only: [:index, :show, :create, :update, :destroy]
+    resources :books, only: [:index, :show, :create, :update, :destroy]
+    resources :teachers, only: [:index, :show]
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
