@@ -28,38 +28,11 @@
     <div class="all-courses">All Courses</div>
 
     <div class="courses-container">
-        <div class="course">
-            <div class="course__name">Example</div>
-        </div>
-        <div class="course">
-            <div class="course__name">Example</div>
-        </div>
-        <div class="course">
-            <div class="course__name">Example</div>
-        </div>
-        <div class="course">
-            <div class="course__name">Example</div>
-        </div>
-        <div class="course">
-            <div class="course__name">Example</div>
-        </div>
-        <div class="course">
-            <div class="course__name">Example</div>
-        </div>
-        <div class="course">
-            <div class="course__name">Example</div>
-        </div>
-        <div class="course">
-            <div class="course__name">Example</div>
-        </div>
-        <div class="course">
-            <div class="course__name">Example</div>
-        </div>
     </div>
 
     <div class="new-course-label">New Course</div>
 
-    <%= form_tag("users/#{current_user.id}/courses", local: true, class: "create-course") do %>
+    <%= form_tag("users/#{current_user.id}/courses", local: true, data: {remote: "true"}, class: "create-course") do %>
 
     <%= label_tag :course,  "" %>
     <%= text_field_tag :course, nil,  placeholder: "Course Name", class: "form-input" %> 

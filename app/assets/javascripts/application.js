@@ -16,44 +16,66 @@
 
 const elements = {
     userHeading: document.querySelector(".user-heading"),
+    coursesContainer: document.querySelector(".courses-container"),
+    courseForm: document.querySelector(".create-course"),
+    courseInput: document.querySelector(".form-input"),
+    courseList: [...document.querySelectorAll(".course")]
 };
-
+const crsf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+console.log(crsf)
 const userId = parseInt(elements.userHeading.dataset.id);
 
-// axios.get(`/users/${userId}/courses`)
-// .then((res) => {
-//     console.log(res.data);   
-// }).catch((err) => {
-//     console.log(err); 
-// });
+const renderCourses = (courseArray) => {
+    elements.coursesContainer.innerHTML = ""
 
-// axios.get(`/users/${userId}/books`)
-// .then((res) => {
-//     console.log(res.data);   
-// }).catch((err) => {
-//     console.log(err); 
-// });
+    let nodeArr = courseArray.map((item) => {
+        const node = document.createElement("div");
+        node.classList.add("course");
+        node.innerHTML = `<div class="course__name">${item.course}</div>`;
+        return node;
+    });
 
-// axios.get(`/users/${userId}/teachers`)
-// .then((res) => {
-//     console.log(res.data);   
-// }).catch((err) => {
-//     console.log(err); 
-// });
+    const docFrag = document.createDocumentFragment();
+    nodeArr.forEach((item) => {
+        docFrag.appendChild(item);
+    });
+
+    elements.coursesContainer.appendChild(docFrag);
+
+};
 
 
-document.querySelector(".create-course")
-    .addEventListener("submit", (event) => {
-        console.log("axios goes here")
-        event.preventDefault();
-        // axios.post("/users/#{userId}/courses")
-        // .then((res) => {
-        //     ///// render to page here
-        //     console.log(res.data)
-        // })
-        // .catch((err) => {
-        //     console.log(err);
-        // });
+
+
+
+axios.get(`/users/${userId}/courses`)
+.then((res) => {
+    renderCourses(res.data);
+}).catch((err) => {
+    console.log(err); 
+});
+
+
+
+elements.courseForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    axios.post(`/users/${userId}/courses`, {
+        course: elements.courseInput.value,
+        authenticity_token: crsf,
+    })
+    .then((res) => {
+        console.log(res)
+        if(res.status === 200) {
+            return axios.get(`/users/${userId}/courses`);
+        }
+    })
+    .then((res) => {
+        if(res.status === 200) renderCourses(res.data);
+    })
+    .catch((err) => {
+        console.log(err);
+    });
 });
 
 
