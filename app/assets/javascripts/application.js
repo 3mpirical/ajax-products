@@ -22,7 +22,6 @@ const elements = {
     courseList: [...document.querySelectorAll(".course")]
 };
 const crsf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-console.log(crsf)
 const userId = parseInt(elements.userHeading.dataset.id);
 
 const renderCourses = (courseArray) => {
@@ -59,6 +58,9 @@ axios.get(`/users/${userId}/courses`)
 
 elements.courseForm.addEventListener("submit", (event) => {
     event.preventDefault();
+    event.stopPropagation();
+
+    console.log("form submission");
 
     axios.post(`/users/${userId}/courses`, {
         course: elements.courseInput.value,

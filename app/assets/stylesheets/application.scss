@@ -55,7 +55,9 @@ body {
     }
 
     .user-heading {
+        position: absolute;
         font-size: 2rem;
+        left: 13rem;
     }
 
     .menu-icon {
@@ -97,13 +99,9 @@ body {
 
     .university-name {
         position: absolute;
-        // top: 4rem;
-        // right: 4rem;
         top: 0rem;
         right: 8rem;
-        // background-color: rgba(0,0,0,0.6);
         background-color: $color-blue;
-        // border-radius: 3px;
         border-bottom-right-radius: 3px;
         border-bottom-left-radius: 3px;
         padding: 0.5rem 2.5rem;

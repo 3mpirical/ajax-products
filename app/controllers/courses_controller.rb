@@ -17,7 +17,6 @@ class CoursesController < ApplicationController
         )
 
         if(@course.save())
-            puts "============================================================="
             render(json: @course)
         else
             render(json: {error: "Data Not Saved"})
