@@ -14,6 +14,8 @@
 //= require activestorage
 //= require_tree .
 
+
+///// DOM ELEMENTS
 const elements = {
     userHeading: document.querySelector(".user-heading"),
     coursesContainer: document.querySelector(".courses-container"),
@@ -21,9 +23,13 @@ const elements = {
     courseInput: document.querySelector(".form-input"),
     courseList: [...document.querySelectorAll(".course")]
 };
+
+///// VALUES
 const crsf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 const userId = parseInt(elements.userHeading.dataset.id);
 
+
+///// FUNCTION: to render courses
 const renderCourses = (courseArray) => {
     elements.coursesContainer.innerHTML = ""
 
@@ -44,9 +50,7 @@ const renderCourses = (courseArray) => {
 };
 
 
-
-
-
+///// RENDERING COURSES ON PAGE LOAD
 axios.get(`/users/${userId}/courses`)
 .then((res) => {
     renderCourses(res.data);
@@ -55,7 +59,7 @@ axios.get(`/users/${userId}/courses`)
 });
 
 
-
+///// FORM SUBMISSION
 elements.courseForm.addEventListener("submit", (event) => {
     event.preventDefault();
     event.stopPropagation();
